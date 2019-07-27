@@ -10,11 +10,11 @@ docker build -t chsliu/webmin .
 
 ## Running the container
 ```
-docker run -d -p 10000:10000 chsliu/webmin
+docker run -d -p 10000:10000 -p 80 -p 21 chsliu/webmin
 ```
 
 Log into webmin and manage your server
 ```
-http://hostname.or.ip:10000
+https://hostname.or.ip:10000
 (root:pass)
 ```
