@@ -27,7 +27,7 @@ RUN echo "\033[1mInstalling server softwares...\033[0m" \
 		mysql-server \
 		phpmyadmin \
 		proftpd \
-	&& dpkg-reconfigure webmin \
+	&& DEBIAN_FRONTEND=noninteractive apt-get remove -yqq webmin && DEBIAN_FRONTEND=noninteractive apt-get install -yqq webmin \
 	&& apt-get clean
 EXPOSE 80
 EXPOSE 21
