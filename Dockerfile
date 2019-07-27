@@ -40,3 +40,6 @@ RUN echo "\033[1mInstalling PHP modules...\033[0m" \
 	&& apt-get clean
 
 RUN echo root:pass | chpasswd
+
+COPY init.sh /sbin/init.sh
+CMD ["/sbin/init.sh"]
