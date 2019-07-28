@@ -39,7 +39,9 @@ RUN echo "\033[1mInstalling PHP modules...\033[0m" \
 		php-mysql \
 	&& apt-get clean
 
-RUN echo root:pass | chpasswd
+RUN echo "\033[1mConfiguring access...\033[0m" \
+	&& echo root:pass | chpasswd \
+	&& sed -i~ 's/^ssl=1$/ssl=0/' /etc/webmin/miniserv.conf
 
 COPY init.sh /sbin/init.sh
 CMD ["/sbin/init.sh"]
